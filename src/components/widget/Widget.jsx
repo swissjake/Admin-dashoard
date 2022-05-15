@@ -69,7 +69,7 @@ const Widget = ({type}) => {
         <div className="right">
             <div className="percentage positive">
                 <KeyboardArrowUpOutlinedIcon /> 
-                {20} %
+                {diff} %
             </div>
             {data.icon}
         </div>
