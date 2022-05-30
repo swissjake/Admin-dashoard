@@ -3,6 +3,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom";
 import React from "react";
 import List from "./pages/list/List";
@@ -18,13 +19,18 @@ function App() {
  
   const{darkMode} = useContext(DarkModeContext)
 
+  const currentUser = false;
+  const requiredAuth = ({children}) => {
+    return currentUser ? (children) : <Navigate to="/login" />;
+  }
+
   return (
     <div className={darkMode ? 'app dark' : 'app'}>
       <BrowserRouter>
           <Routes>
               <Route path="/">
-              <Route index element={<Home />} />
               <Route path="login" element={<Login />} />
+              <Route index element={<Home />} />
               <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />

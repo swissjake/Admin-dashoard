@@ -12,7 +12,8 @@ import { DarkModeContext } from '../../context/darkModeContext';
 
 const Navbar = () => {
 
-  const {dispatch} = useContext(DarkModeContext)
+  const context = useContext(DarkModeContext)
+  const {toggle} = context
 
   return (
     <div className='navbar'>
@@ -28,7 +29,7 @@ const Navbar = () => {
                 English
             </div>
             <div className="item">
-                <DarkModeOutlinedIcon className="icon" onClick={() => dispatch({type: "TOGGLE"})}/>
+                <DarkModeOutlinedIcon className="icon" onClick={() => toggle()}/>
             </div>
             <div className="item">
                 <FullscreenExitOutlinedIcon className="icon" />

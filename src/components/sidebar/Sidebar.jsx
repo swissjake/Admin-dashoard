@@ -18,13 +18,16 @@ import { useContext } from 'react';
 
 const Sidebar = () => {
  
-    const { dispatch } = useContext(DarkModeContext);
+    const context = useContext(DarkModeContext);
+
+    const {dark}=context
+    const {light}=context
 
   return (
       <div className='sidebar'>
         <div className='top'>
             <Link to="/">
-            <span className='logo'>Sofiadmin</span>
+            <span className='logo'>admin</span>
             </Link>
         </div>
         <hr />
@@ -93,11 +96,13 @@ const Sidebar = () => {
         <div className='bottom'>
         <div
           className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
+          onClick={() =>light()}
+        
         ></div>
         <div
           className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
+       onClick={()=>dark()}
+        
         ></div>
         </div>
     </div>
